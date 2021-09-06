@@ -3,13 +3,9 @@ package ru.loginovleo.carsowners.dto;
 
 public class AutomobileDto {
     private Integer id;
-
     private String brand;
-
     private String model;
-
     private int power;
-
     private Double price;
 
     public AutomobileDto(Integer id, String brand, String model, int power, Double price) {
