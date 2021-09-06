@@ -15,7 +15,7 @@ public class UserService {
         this.jpaUserRepositoryImpl = jpaUserRepositoryImpl;
     }
 
-    public User getUser(int id) {
+    public User getById(int id) {
         return jpaUserRepositoryImpl.getUser(id);
     }
 
