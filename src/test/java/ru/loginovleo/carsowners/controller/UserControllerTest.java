@@ -1,11 +1,9 @@
 package ru.loginovleo.carsowners.controller;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.loginovleo.carsowners.json.JsonUtil;
-import ru.loginovleo.carsowners.service.UserService;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -16,9 +14,6 @@ import static ru.loginovleo.carsowners.TestData.USER;
 public class UserControllerTest extends AbstractControllerTest {
 
     private final String REST_URL = "/users/";
-
-    @Autowired
-    private UserService userService;
 
     @Test
     public void get() throws Exception {
