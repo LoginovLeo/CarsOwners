@@ -9,13 +9,13 @@ import java.util.List;
 
 public class AutomobileUtil {
     public static List<AutomobileDto> getDtos(Collection<Automobile> automobiles) {
-       return automobiles.stream()
+        return automobiles.stream()
                 .map(AutomobileUtil::createDTo)
                 .sorted(Comparator.comparing(AutomobileDto::getPrice).reversed())
                 .toList();
     }
 
-public static AutomobileDto createDTo(Automobile automobile){
-return new AutomobileDto(automobile.getId(), automobile.getBrand(), automobile.getModel(), automobile.getPower(), automobile.getPrice());
-}
+    public static AutomobileDto createDTo(Automobile automobile) {
+        return new AutomobileDto(automobile.getId(), automobile.getBrand(), automobile.getModel(), automobile.getPower(), automobile.getPrice());
+    }
 }

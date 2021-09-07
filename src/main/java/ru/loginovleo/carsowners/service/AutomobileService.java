@@ -27,7 +27,7 @@ public class AutomobileService {
         jpaAutomobileRepository.save(automobile);
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
         jpaAutomobileRepository.deleteById(id);
     }
 }

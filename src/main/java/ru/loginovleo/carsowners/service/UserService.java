@@ -23,15 +23,15 @@ public class UserService {
         return jpaUserRepositoryImpl.getAll();
     }
 
-    public void save(User user){
+    public void save(User user) {
         jpaUserRepositoryImpl.save(user);
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
         jpaUserRepositoryImpl.deleteById(id);
     }
 
-    public User getWithGarage(int id){
+    public User getWithGarage(int id) {
         return jpaUserRepositoryImpl.getWithGarage(id);
     }
 

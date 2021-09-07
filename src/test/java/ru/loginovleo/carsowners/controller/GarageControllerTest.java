@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static ru.loginovleo.carsowners.TestData.*;
 
 class GarageControllerTest extends AbstractControllerTest {
-    private  final String REST_URL = "/garage/";
+    private final String REST_URL = "/garage/";
 
     @Test
     void getById() throws Exception {
@@ -43,10 +43,10 @@ class GarageControllerTest extends AbstractControllerTest {
     @Test
     void getWithAutomobile() throws Exception {
         perform(MockMvcRequestBuilders
-                .get(REST_URL + GARAGEWITHOUTCARS1.getId()+ "/automobile"))
+                .get(REST_URL + GARAGEWITHOUTCARS1.getId() + "/automobile"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(JsonUtil.writeIgnoreProps(GARAGEWITHOUTCARS1,  "user_id")));
+                .andExpect(content().json(JsonUtil.writeIgnoreProps(GARAGEWITHOUTCARS1, "user_id")));
     }
 }

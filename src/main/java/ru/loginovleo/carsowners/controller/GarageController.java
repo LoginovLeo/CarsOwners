@@ -33,23 +33,21 @@ public class GarageController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void save(@RequestBody Garage garage){
+    public void save(@RequestBody Garage garage) {
         logger.info("save garage {}", garage);
         garageService.save(garage);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int id){
+    public void delete(@PathVariable int id) {
         logger.info("delete garage with id {}", id);
         garageService.deleteById(id);
     }
 
     @GetMapping("/{id}/automobile")
-    public Garage getWithAutomobile(@PathVariable int id){
+    public Garage getWithAutomobile(@PathVariable int id) {
         logger.info("get garage {} with automobiles", id);
         return garageService.getWithAutomobile(id);
     }
-
-
 }

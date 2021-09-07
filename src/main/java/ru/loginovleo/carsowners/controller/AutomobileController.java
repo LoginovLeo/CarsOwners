@@ -23,13 +23,13 @@ public class AutomobileController {
     }
 
     @GetMapping("/{id}")
-    public Automobile getById(@PathVariable int id){
-        logger.info("getById automobile {}",id);
+    public Automobile getById(@PathVariable int id) {
+        logger.info("getById automobile {}", id);
         return automobileService.getById(id);
     }
 
     @GetMapping
-    public List<AutomobileDto> getAll(){
+    public List<AutomobileDto> getAll() {
         logger.info("getALl automobiles");
         return AutomobileUtil.getDtos(automobileService.getAll());
     }
@@ -43,7 +43,7 @@ public class AutomobileController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable int id){
+    public void deleteById(@PathVariable int id) {
         logger.info("delete automobile with id {}", id);
         automobileService.deleteById(id);
     }

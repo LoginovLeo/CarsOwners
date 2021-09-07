@@ -27,11 +27,11 @@ public class JpaGarageRepositoryImpl {
         return crudGarageRepository.findAll();
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
         crudGarageRepository.deleteById(id);
     }
 
-    public Garage getWithAutomobile(int id){
+    public Garage getWithAutomobile(int id) {
         return crudGarageRepository.getWithAutomobile(id);
     }
 

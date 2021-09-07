@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "automobile")
-public class Automobile extends AbstractBaseEntity{
+public class Automobile extends AbstractBaseEntity {
 
     @Column(name = "brand_name")
     @NotBlank

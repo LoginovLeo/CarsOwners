@@ -12,6 +12,7 @@ import static ru.loginovleo.carsowners.TestData.AUTOMOBILE1;
 
 class AutomobileControllerTest extends AbstractControllerTest {
     private final String REST_URL = "/automobile/";
+
     @Test
     void getById() throws Exception {
         perform(MockMvcRequestBuilders

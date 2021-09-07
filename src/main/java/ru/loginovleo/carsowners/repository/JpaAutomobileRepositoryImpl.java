@@ -22,11 +22,11 @@ public class JpaAutomobileRepositoryImpl {
         return autoRepository.findAll();
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
         autoRepository.deleteById(id);
     }
 
-    public void save(Automobile automobile){
+    public void save(Automobile automobile) {
         autoRepository.save(automobile);
     }
 }
