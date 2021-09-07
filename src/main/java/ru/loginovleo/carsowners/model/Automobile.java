@@ -27,18 +27,18 @@ public class Automobile extends AbstractBaseEntity {
 
     @Column(name = "garage_id")
     @NotBlank
-    private int garage_id;
+    private int garageId;
 
     public Automobile() {
     }
 
-    public Automobile(int id, String brand, String model, int power, Double price, int garage_id) {
+    public Automobile(int id, String brand, String model, int power, Double price, int garageId) {
         super(id);
         this.brand = brand;
         this.model = model;
         this.power = power;
         this.price = price;
-        this.garage_id = garage_id;
+        this.garageId = garageId;
     }
 
     public String getBrand() {
@@ -73,11 +73,11 @@ public class Automobile extends AbstractBaseEntity {
         this.price = price;
     }
 
-    public int getGarage_id() {
-        return garage_id;
+    public int getGarageId() {
+        return garageId;
     }
 
-    public void setGarage_id(int garage_id) {
-        this.garage_id = garage_id;
+    public void setGarageId(int garage_id) {
+        this.garageId = garage_id;
     }
 }

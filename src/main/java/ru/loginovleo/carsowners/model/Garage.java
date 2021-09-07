@@ -14,7 +14,7 @@ public class Garage extends AbstractBaseEntity {
 
     @Column(name = "user_id")
     @NotBlank
-    private int user_id;
+    private int userId;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "garage_id", referencedColumnName = "id")
@@ -42,11 +42,11 @@ public class Garage extends AbstractBaseEntity {
         this.name = name;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int user_id) {
+        this.userId = user_id;
     }
 }
