@@ -9,18 +9,27 @@ import java.util.List;
 public class Garage extends AbstractBaseEntity {
 
     @Column(name = "name")
-    @NotBlank
     private String name;
 
     @Column(name = "user_id")
-    @NotBlank
     private int userId;
+
+    @Column(name ="capacity")
+    private int capacity;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "garage_id", referencedColumnName = "id")
     private List<Automobile> cars;
 
     public Garage() {
+    }
+
+
+
+    public Garage(int id, String name, int userId) {
+        super(id);
+        this.name = name;
+        this.userId = userId;
     }
 
     public Garage(int id, String name, List<Automobile> cars) {

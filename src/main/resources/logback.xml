@@ -20,8 +20,8 @@
         </encoder>
     </appender>
 
-    <logger name="ru.loginovleo.carsowners" level="debug"/>
-    <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="debug"/>
+    <logger name="ru.loginovleo.carsowners" level="trace"/>
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="trace"/>
 
 
     <root level="info">

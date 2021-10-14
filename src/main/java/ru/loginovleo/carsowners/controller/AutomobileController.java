@@ -23,15 +23,15 @@ public class AutomobileController {
     }
 
     @GetMapping("/{id}")
-    public Automobile getById(@PathVariable int id) {
+    public AutomobileDto getById(@PathVariable int id) {
         logger.info("getById automobile {}", id);
-        return automobileService.getById(id);
+        return AutomobileUtil.getAuto(automobileService.getById(id));
     }
 
     @GetMapping
     public List<AutomobileDto> getAll() {
         logger.info("getALl automobiles");
-        return AutomobileUtil.getDtos(automobileService.getAll());
+        return AutomobileUtil.getFilteredByPrice(automobileService.getAll());
     }
 
     @PostMapping

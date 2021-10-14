@@ -22,7 +22,7 @@ public class UserControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(JsonUtil.writeIgnoreProps(USER, "registered", "garages")));
+                .andExpect(content().json(JsonUtil.writeIgnoreProps(USER, "roles","registered", "garages")));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class UserControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(JsonUtil.writeIgnoreProps(USER, "registered")));
+                .andExpect(content().json(JsonUtil.writeIgnoreProps(USER, "roles","registered")));
 
     }
 
