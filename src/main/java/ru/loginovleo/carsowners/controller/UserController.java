@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.loginovleo.carsowners.dto.UserDto;
+import ru.loginovleo.carsowners.dto.dtoMappers.UserDtoMapper;
 import ru.loginovleo.carsowners.model.User;
 import ru.loginovleo.carsowners.service.UserService;
 
@@ -27,9 +29,11 @@ public class UserController {
     }
 
     @GetMapping()
-    public List<User> getAll() {
+    public List<UserDto> getAll() {
+        List<User> all = userService.getAll();
+        List<UserDto> userDtos = all.stream().map(UserDtoMapper::createUserDto).toList();
         logger.info("getAll users");
-        return userService.getAll();
+        return userDtos;
     }
 
     @GetMapping("/{id}/garage")

@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import ru.loginovleo.carsowners.model.User;
 
-
 public interface CrudUserRepository extends JpaRepository<User, Integer> {
 
 

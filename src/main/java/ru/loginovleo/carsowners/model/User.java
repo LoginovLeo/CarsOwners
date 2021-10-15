@@ -1,8 +1,8 @@
 package ru.loginovleo.carsowners.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.util.CollectionUtils;
@@ -16,6 +16,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties(value = {"roles"})
 public class User extends AbstractBaseEntity {
 
     @NotBlank
@@ -56,11 +57,11 @@ public class User extends AbstractBaseEntity {
     }
 
     public User(Integer id, String name, String email, String password, Role role, List<Garage> garage, Role... roles) {
-        this(id, name, email, password, new Date(), EnumSet.of(role, roles),  garage);
+        this(id, name, email, password, new Date(), EnumSet.of(role, roles), garage);
     }
 
     public User(Integer id, String name, String email, String password, Set<Role> role, List<Garage> garage) {
-        this(id, name, email, password, new Date(), role,  garage);
+        this(id, name, email, password, new Date(), role, garage);
     }
 
     public User(Integer id, String name, String email, String password, Date registered, Collection<Role> roles, Collection<Garage> garages) {
