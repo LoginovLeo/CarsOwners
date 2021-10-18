@@ -1,10 +1,7 @@
 package ru.loginovleo.carsowners.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -22,11 +19,13 @@ import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
 
+
 @Configuration
 @EnableJpaRepositories("ru.loginovleo.carsowners.repository")
 @PropertySource("classpath:db/postgres.properties")
 @ComponentScan(basePackages = {"ru.loginovleo.carsowners.repository", "ru.loginovleo.carsowners.service", "ru.loginovleo.carsowners.controller"})
 @EnableWebMvc
+@Import({WebSecurityConfig.class})
 public class SpringAppConfig {
 
     private final Environment environment;

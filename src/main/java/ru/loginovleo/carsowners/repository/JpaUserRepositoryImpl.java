@@ -33,4 +33,8 @@ public class JpaUserRepositoryImpl {
     public User getWithGarage(int id) {
         return crudUserRepository.getWithGarage(id);
     }
+
+    public User findByEmail(String email){
+       return crudUserRepository.findByEmail(email);
+    }
 }

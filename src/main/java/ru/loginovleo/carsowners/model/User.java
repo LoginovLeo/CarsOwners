@@ -38,17 +38,37 @@ public class User extends AbstractBaseEntity {
     @Column(name = "registered", nullable = false, columnDefinition = "timestamp default now()")
     @NotNull
     private Date registered = new Date();
+    @Enumerated(value = EnumType.STRING)
+    @Column (name = "role")
+    private Role role;
 
-    @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
-            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role"}, name = "uk_user_roles")})
-    @Column(name = "role")
-    @ElementCollection(fetch = FetchType.LAZY)
-    @BatchSize(size = 200)
-    @JoinColumn(name = "user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Role> roles;
+    public User(String name, String email, String password, Date registered, Role role, List<Garage> garages) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.registered = registered;
+        this.role = role;
+        this.garages = garages;
+    }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+//    @Enumerated(EnumType.STRING)
+//    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
+//            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role"}, name = "uk_user_roles")})
+//    @Column(name = "role")
+//    @ElementCollection(fetch = FetchType.LAZY)
+//    @BatchSize(size = 200)
+//    @JoinColumn(name = "user_id")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Set<Role> roles;
+//
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Garage> garages;
@@ -70,7 +90,7 @@ public class User extends AbstractBaseEntity {
         this.email = email;
         this.password = password;
         this.registered = registered;
-        setRoles(roles);
+//        setRoles(roles);
     }
 
     public List<Garage> getGarages() {
@@ -81,13 +101,13 @@ public class User extends AbstractBaseEntity {
         this.garages = garages;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
-    }
+//    public Set<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Collection<Role> roles) {
+//        this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
+//    }
 
     public String getName() {
         return name;

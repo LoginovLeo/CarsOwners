@@ -35,4 +35,7 @@ public class UserService {
         return jpaUserRepositoryImpl.getWithGarage(id);
     }
 
+    public User findByEmail (String email){
+        return jpaUserRepositoryImpl.findByEmail(email);
+    }
 }
