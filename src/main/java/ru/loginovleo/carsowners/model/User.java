@@ -2,11 +2,6 @@ package ru.loginovleo.carsowners.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.util.CollectionUtils;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,34 +9,54 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.*;
 
+/** Entity for User
+ @author Loginov Leonid
+ @version 1.1
+ */
+
 @Entity
 @Table(name = "users")
 @JsonIgnoreProperties(value = {"roles"})
 public class User extends AbstractBaseEntity {
-
+    /** Field username */
     @NotBlank
     @Size(min = 2, max = 100)
     @Column(name = "name", nullable = false)
     private String name;
 
+    /** Field user email */
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotBlank
     @Size(max = 100)
     private String email;
 
+    /** Field user password */
     @Column(name = "password", nullable = false)
     @NotBlank
     @Size(min = 5, max = 100)
     private String password;
 
+    /** Field registered */
     @Column(name = "registered", nullable = false, columnDefinition = "timestamp default now()")
     @NotNull
     private Date registered = new Date();
+
+    /** Field user role */
     @Enumerated(value = EnumType.STRING)
     @Column (name = "role")
     private Role role;
 
+    /**
+     * Constructor - creating new object User
+     * @param name - Field username
+     * @param email - Field user email
+     * @param password - Field user password
+     * @param registered - registered
+     * @param role - user role
+     * @param garages - list of garages
+     * @see User#User(String, String, String, Date, Role, List)
+     */
     public User(String name, String email, String password, Date registered, Role role, List<Garage> garages) {
         this.name = name;
         this.email = email;
